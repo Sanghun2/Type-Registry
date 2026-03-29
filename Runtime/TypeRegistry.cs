@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BillotGames
+namespace BilliotGames
 {
     public class TypeRegistry<Tin, Tout>
     {
