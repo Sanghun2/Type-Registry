@@ -16,6 +16,13 @@ namespace BilliotGames
 
             typeDict[targetType] = target;
         }
+        public void Register(Type targetType, Tout target) {
+            if (!typeof(Tin).IsAssignableFrom(targetType)) {
+                Debug.LogError($"<color=red>{targetType} is not assignable from {typeof(Tin)}</color>");
+                return;
+            }
+            typeDict[targetType] = target;
+        }
         public void Unregister<TType>() where TType : Tin {
             typeDict.Remove(typeof(TType));
         }
