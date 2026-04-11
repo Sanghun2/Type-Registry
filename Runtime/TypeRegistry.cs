@@ -35,5 +35,16 @@ namespace BilliotGames
             Debug.LogError($"<color=red>type ({typeof(Tin)}) is not exist</color>");
             return false;
         }
+        public bool TryGet<TKey, TOut>(out TOut result)
+            where TKey : Tin
+            where TOut : Tout {
+            if (typeDict.TryGetValue(typeof(TKey), out var found) && found is TOut typed) {
+                result = typed;
+                return true;
+            }
+            result = default;
+            Debug.LogError($"<color=red>type ({typeof(TKey)}) is not exist</color>");
+            return false;
+        }
     }
 }
