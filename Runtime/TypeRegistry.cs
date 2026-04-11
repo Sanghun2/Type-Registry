@@ -10,8 +10,8 @@ namespace BilliotGames
 
         public void Register<TType>(Tout target) where TType : Tin {
             var targetType = typeof(TType);
-            if (!typeDict.ContainsKey(targetType)) {
-                Debug.Log($"new ({targetType}) registry registered");
+            if (typeDict.ContainsKey(targetType)) {
+                Debug.Log($"({targetType}) registry replaced");
             }
 
             typeDict[targetType] = target;
